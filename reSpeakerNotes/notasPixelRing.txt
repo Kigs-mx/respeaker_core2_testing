@@ -1,0 +1,5 @@
+
+EL ejemplo 
+	respeaker_v2_pixel_ring.py
+
+contiene los metodos que se pueden usar de la biblioteca pixel_ring

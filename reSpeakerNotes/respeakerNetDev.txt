@@ -1,0 +1,57 @@
+8C:F7:10:76:05:CC (wlan0)
+
+192.168.1.116
+
+
+76:99:EF:91:9A:44 (eth0)
+
+cd ~
+git clone https://github.com/voice-engine/voice-engine.git
+cd ~/voice-engine/examples
+python kws_doa_alexa_respeaker_v2.py
+
+
+
+cd ~
+#copy above link code to pulse_snowboy_1b_test.cc, then press Ctrl+X, and Y to save the file.
+nano pulse_snowboy_1b_test.cc
+# compile
+g++ src/pulse_snowboy_1b_test.cc -o build/pulse_snowboy_1b_test -lrespeaker -lsndfile -fPIC -std=c++11 -fpermissive -I/usr/include/respeaker/ -DWEBRTC_LINUX -DWEBRTC_POSIX -DWEBRTC_NS_FLOAT -DWEBRTC_APM_DEBUG_DUMP=0 -DWEBRTC_INTELLIGIBILITY_ENHANCER=0
+# run, then say "snowboy" to test the KWS engine
+./pulse_snowboy_1b_test
+# show the help page of this example
+./pulse_snowboy_1b_test --help
+
+
+
+cd ~
+#copy above link code to alsa_snips_1b_test.cc, then press Ctrl+X, and Y to save the file.
+nano alsa_snips_1b_test.cc
+# compile
+g++ src/alsa_snips_1b_test.cc -o build/alsa_snips_1b_test -lrespeaker -lsndfile -fPIC -std=c++11 -fpermissive -I/usr/include/respeaker/ -DWEBRTC_LINUX -DWEBRTC_POSIX -DWEBRTC_NS_FLOAT -DWEBRTC_APM_DEBUG_DUMP=0 -DWEBRTC_INTELLIGIBILITY_ENHANCER=0
+# run, then say "hey, snips" to test the KWS engine
+./alsa_snips_1b_test
+# show the help page of this example
+./alsa_snips_1b_test --help
+
+
+cd ~
+#copy above link code to file_1beam_test.cc, then press Ctrl+X, and Y to save the file.
+nano file_1beam_test.cc
+# compile
+g++ src/file_1beam_test.cc -o build/file_1beam_test -lrespeaker -lsndfile -fPIC -std=c++11 -fpermissive -I/usr/include/respeaker/ -DWEBRTC_LINUX -DWEBRTC_POSIX -DWEBRTC_NS_FLOAT -DWEBRTC_APM_DEBUG_DUMP=0 -DWEBRTC_INTELLIGIBILITY_ENHANCER=0
+# record a testing wav file to test keyword "snowboy"
+arecord -Dhw:0,0 -f S16_LE -r 16000 -c 8 my_test.wav
+# run
+./file_1beam_test -f my_test.wav
+# you need to press Ctrl+C to exit when the log is stopped
+
+
+cd ~
+#copy above link code to file_1beam_test.cc, then press Ctrl+X, and Y to save the file.
+nano alsa_aloop_test.cc
+# compile
+g++ src/alsa_aloop_test.cc -o build/alsa_aloop_test -lrespeaker -lsndfile -fPIC -std=c++11 -fpermissive -I/usr/include/respeaker/ -DWEBRTC_LINUX -DWEBRTC_POSIX -DWEBRTC_NS_FLOAT -DWEBRTC_APM_DEBUG_DUMP=0 -DWEBRTC_INTELLIGIBILITY_ENHANCER=0
+
+
+

@@ -1,0 +1,43 @@
+######## Inicio de ResSpeakerd  ########
+
+Las siguientes instrucciones inician el servidor de aplicaciones de respeakerd, el cual se supone da soporte a diversas aplicaciones desarrolladas para la tarjeta respeaker core v2
+
+	sudo systemctl start respeakerd
+
+	sudo journalctl -f -u respeakerd
+
+
+Para iniciar Alexa app con Snowboy Out the box ****
+	python home/respeaker/respeakerd/clients/Python/demo_respeaker_v2_vep_alexa_with_light.py
+
+
+
+Otras instrucciones adicionales para el servidor son:
+
+	sudo systemctl is-active -q respeakerd && sudo systemctl stop respeakerd
+
+
+SOBRE DOA
+
+El resultado visual proporcionando por los LEDS del programa cleinte
+
+	 test_doa.py
+
+da la impresion de que solo esta usando el MIC1, porque siempre enciende el led cercano a dicho microfono con un diferente color, por lo que de ser esto cierto, se tiene que habilitar el uso de todo el arreglo de microfonos o corroborar que por software se le indica que solo use el MIC1
+
+
+Este codigo funciona, solo si se activa la pociond doa dinamico, declarandola en el archivo
+	/etc/respeaker/respeakerd.conf
+	
+	# dynamic_doa
+
+# if enabled, the DoA direction will dynamically track the sound, otherwise it only changes when hotword detected
+# for most cases, DoA at the trigger time will do the thing, and this is the mode `pixel_ring_server` uses
+dynamic_doa = true
+
+
+
+Fuente:
+	https://raw.githubusercontent.com/respeaker/respeakerd/master/scripts/install_all.sh
+	
+	
