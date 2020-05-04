@@ -1,0 +1,27 @@
+ConnectionError: HTTPSConnectionPool(host='api.amazon.com', port=443): Max retries exceeded with url: /auth/o2/token (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0xb55afc50>: Failed to establish a new connection: [Errno 113] No route to host',))
+
+
+ERROR:avs.alexa:HTTPSConnectionPool(host='api.amazon.com', port=443): Max retries exceeded with url: /auth/o2/token (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0xb55af910>: Failed to establish a new connection: [Errno 113] No route to host',))
+
+
+
+terminate called after throwing an instance of 'rospack::Exception'
+  what():  error parsing manifest of package rosmaster at /opt/ros/melodic/share/rosmaster/package.xml
+  
+  Failed to connect to raw.githubusercontent.com port 443: No route to host
+  
+  
+curl: (7) Failed to connect to raw.githubusercontent.com port 443: No route to host
+
+
+ **** Para iniciar Alexa app con Snowboy Out the box ****
+sudo systemctl start respeakerd
+
+sudo journalctl -f -u respeakerd
+
+python home/respeaker/respeakerd/clients/Python/demo_respeaker_v2_vep_alexa_with_light.py
+
+
+sudo systemctl is-active -q respeakerd && sudo systemctl stop respeakerd
+
+
